@@ -1,4 +1,41 @@
 public class Base
 {
+  public Base(int x, int, y, int z)
+  {
+    this.x = x;
+    this.y = y;
+    this.z = z:
+  }
   
+  public int input1 = 7;
+  public int input2 = 9;
+  
+ public int Input1
+ {
+  get
+  {
+    return input1;
+  }
+  set
+  {
+    Console.WriteLine("Set {0} to input1", value);
+    input1 = value;
+  }
+ }
+ 
+ public int Input2
+ {
+  get{ }
+  set
+  {
+    Console.WriteLine("Set {0} to input2", value);
+    input2 = value;
+  }
+ }
+ 
+ public void Parallax(int dX, int dY)
+ {
+  input1 += dX;
+  input2 += dY;
+ }
 }
