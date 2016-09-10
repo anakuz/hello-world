@@ -9,6 +9,7 @@ public class Base
   
   public int input1 = 7;
   public int input2 = 9;
+  public int count = 0;
   
  public int Input1
  {
@@ -25,11 +26,22 @@ public class Base
  
  public int Input2
  {
-  get{ }
+  get
+  {
+    return input2;
+  }
   set
   {
     Console.WriteLine("Set {0} to input2", value);
     input2 = value;
+  }
+ }
+ 
+ public int Count
+ {
+  get
+  {
+    return count;
   }
  }
  
