@@ -1,0 +1,139 @@
+{
+    /*
+        Описание интерфейса класса. Создать классы для описания полей, свойств, методов, конструкторов и т.д., а также классов. 
+        Предусмотреть наследование описаний друг от друга (в логичном порядке).
+        Далее создается описание класса в виде структуры.
+     */
+
+    public interface IBase
+    {
+        int Property1 { get; set; }
+        int Property2 { get; set; }
+        void SetProperties(int property1, int property2);
+    }
+
+
+    public class Base1 : IBase
+    {
+        public Base1(int x, int y, int z)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+
+        private int _input1 = 7;
+        private int _input2 = 9;
+        private int count = 0;
+
+        protected int x;
+        protected int y;
+        protected int z;
+
+
+
+
+        public int Property1
+        {
+            get
+            {
+                return _input1;
+            }
+            set
+            {
+                Console.WriteLine("Set {0} to input1", value);
+                _input1 = value;
+            }
+        }
+        public int Property2
+        {
+            get
+            {
+                return _input2;
+            }
+            set
+            {
+                Console.WriteLine("Set {0} to input2", value);
+                _input2 = value;
+            }
+        }
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+
+
+
+
+
+        public virtual void SetProperties(int dX, int dY)
+        {
+            _input1 += dX;
+            _input2 += dY;
+        }
+    }
+
+
+    public class Base2 : IBase
+    {
+        public Base2() : this(10, 10) { }
+        public Base2(int property1, int property2)
+        {
+            Property1Field = property1;
+            Property2Field = property2;
+        }
+
+        protected int Property1Field;
+        protected int Property2Field;
+
+
+
+
+
+        public int Property1
+        {
+            get
+            {
+                return Property1Field;
+            }
+            set
+            {
+                if (value % 2 == 0)
+                    Property1Field = value;
+            }
+        }
+        public int Property2
+        {
+            get
+            {
+                return Property2Field;
+            }
+            set
+            {
+                if (value > 10)
+                    Property2Field = value;
+            }
+        }
+
+
+
+        public virtual void SetProperties(int dX, int dY)
+        {
+            Property1 += dX;
+            Property2 += dY;
+        }
+    }
+
+
+    public class Base3 : Base2
+    {
+        public override void SetProperties(int dX, int dY)
+        {
+            Property2Field += dY;
+        }
+    }
+
+}
