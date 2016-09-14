@@ -1,0 +1,50 @@
+class Base
+{
+  string name;
+  
+  public Base(string baseName)
+  {
+    name = baseName;
+  }
+  
+}
+
+class Class : Base
+{
+  string name;
+  
+  class Class(string className)
+  {
+    name = className;
+  }
+  
+  List <Field> fields = new List<Field>;
+  
+  public Field AddField()
+  {
+    
+  }
+}
+
+class Field : Base
+{
+  string name;
+  string value;
+  string am;
+  
+  public Field(string fieldName, string fieldValue, string accessMod)
+  {
+    name = fieldName;
+    value = fieldValue;
+    am = accessMod;
+  }
+  
+  enum { public; private; ... }
+}
+
+class Method : Base
+{
+  string name;
+  
+  List <Params> parameters = new List<Params>;
+}
